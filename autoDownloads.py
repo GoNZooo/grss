@@ -1,3 +1,5 @@
+import re
+
 # Conversion table for translation of human readable units.
 conversions = {
                 "m": 60,
@@ -39,6 +41,12 @@ class CAutoDLItem:
         
         return totalTime
 
+    def matchRegex(self, feedItem):
+        if re.match(self.regex, feedItem.title, 16):
+            return True
+        else:
+            return False
+
 # Reading the autodl.cfg (or any other given file)
 # and the data necessary for a AutoDL item.
 def getAutoDownloads(filename = "autodl.cfg"):
@@ -59,3 +67,4 @@ if __name__ == "__main__":
     for item in autoList:
         print(item.name, item.regex, item.interval,
                 item.translateHumanReadable(item.interval), sep="\t")
+
