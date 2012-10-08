@@ -1,5 +1,8 @@
+import os
+
 import feedParser
 import autoDownloads
+import athcfg
 
 dataFile = open("testFeed.xml", "r")
 data = dataFile.read()
@@ -14,6 +17,6 @@ if channels:
     for autoItem in autoList:
         for item in itemContainers:
             if autoItem.matchRegex(item):
-                print("Match found:", autoItem.name, autoItem.regex,
+                print("Match found (Downloading):", autoItem.name, autoItem.regex,
                         item.title, sep = "\t")
-
+                item.download()

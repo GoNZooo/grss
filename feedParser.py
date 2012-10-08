@@ -1,4 +1,6 @@
 import re
+import os
+import athcfg
 
 class CItem:
     def __init__(self, title, date, category, guid,
@@ -10,6 +12,9 @@ class CItem:
         self.comments = comments
         self.link = link
         self.description = description
+
+    def download(self):
+        os.system(athcfg.wget + " " + self.link + "-t 5 -O " + athcfg.downloaddir)
 
 def separateChannels(data):
     # 16 is the flag for the dot matching newlines.
