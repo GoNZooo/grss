@@ -2,7 +2,7 @@ import os
 
 import feedParser
 import autoDownloads
-import athcfg
+import pathcfg
 
 dataFile = open("testFeed.xml", "r")
 data = dataFile.read()
