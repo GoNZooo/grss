@@ -5,6 +5,8 @@ import autoDownloads
 import feedParser
 import pathcfg
 
+running = True
+
 if len(sys.argv) > 1:
     sleepTime = int(sys.argv[1])
 else:

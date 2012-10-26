@@ -14,7 +14,7 @@ class CItem:
         self.description = description
 
     def download(self):
-        os.system(pathcfg.wget + " " + self.link + "-t 5 -O " + pathcfg.downloaddir)
+        os.system(pathcfg.wget + " " + self.link + " -t 5 -O " + pathcfg.downloaddir + "/" + self.link.split("/")[-1].rstrip("/"))
 
 def separateChannels(data):
     # 16 is the flag for the dot matching newlines.
