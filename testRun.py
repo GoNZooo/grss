@@ -6,6 +6,7 @@ import feedParser
 import pathcfg
 
 running = True
+downloaded = []
 
 if len(sys.argv) > 1:
     sleepTime = int(sys.argv[1])
@@ -27,7 +28,9 @@ while running:
             for autoItem in autoList:
                 for item in itemContainers:
                     if autoItem.matchRegex(item):
-                        print("Downloading:", autoItem.name,
+                        if item.link not in downloaded:
+                            print("Downloading:", autoItem.name,
                                 autoItem.regex, item.title, sep = "\t")
-                        item.download()
+                            item.download()
+                            downloaded.append(item.link)
     time.sleep(sleepTime)
