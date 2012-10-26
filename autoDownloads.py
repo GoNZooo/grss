@@ -1,6 +1,6 @@
 import os
 import re
-import athcfg
+import pathcfg
 
 # Conversion table for translation of human readable units.
 conversions = {
