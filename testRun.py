@@ -14,7 +14,7 @@ else:
     sleepTime = 5 * 60
 
 while running:
-    if not os.system(pathcfg.wget + " http://rss.torrentleech.org/545bd4247b6ebdf311b7 -O current.xml"):
+    if not os.system(pathcfg.wget + " " + pathcfg.rssURL +  " -O current.xml"):
         dataFile = open("current.xml", "r")
         data = dataFile.read()
         dataFile.close()
