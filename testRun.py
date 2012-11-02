@@ -34,7 +34,7 @@ while running:
                 for item in itemContainers:
                     if autoItem.matchRegex(item):
                         if item.link not in downloaded:
-                            print("Downloading:", autoItem.name,
+                            print("Match:", autoItem.name,
                                 autoItem.regex, item.title, sep = "\t")
                             item.download()
                             downloaded.append(item.link)
