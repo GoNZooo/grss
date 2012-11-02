@@ -10,7 +10,8 @@ downloaded = []
 
 if pathcfg.rssURL == "http://PUT/RSS/URL/HERE":
     running = False
-    print("You need to configure your RSS URL in the pathcfg.py file")
+    print("Default feed URL detected.")
+    print("You need to configure your RSS URL in the pathcfg.py file.")
 
 if len(sys.argv) > 1:
     sleepTime = int(sys.argv[1])
