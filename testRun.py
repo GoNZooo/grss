@@ -16,7 +16,7 @@ if pathcfg.rssURL == "http://PUT/RSS/URL/HERE":
 if len(sys.argv) > 1:
     sleepTime = int(sys.argv[1])
 else:
-    sleepTime = 5 * 60
+    sleepTime = 5 * 62
 
 while running:
     if not os.system(pathcfg.wget + " " + pathcfg.rssURL +  " -O current.xml"):
