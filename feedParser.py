@@ -1,6 +1,7 @@
 import re
 import os
 import pathcfg
+import autoDownloads
 
 class CItem:
     def __init__(self, title, date, category, guid,
@@ -52,14 +53,13 @@ if __name__ == "__main__":
     data = dataFile.read()
     dataFile.close()
 
+    dlItems = autoDownloads.getAutoDownloads()
+
     channels = separateChannels(data)
     if channels:
         itemStrings = separateItems(channels[0])
         itemContainers = createItemContainers(itemStrings)
         for item in itemContainers:
-            print(item.title)
-            print(item.date)
-            print(item.category)
-            print(item.guid)
-            print(item.comments)
-            print(item.link)
+            for dlItem in dlItems:
+                if dlItem.matchRegex(item):
+                    print("Match:", dlItem.regex, item.title)
