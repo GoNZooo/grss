@@ -30,3 +30,4 @@ pip-log.txt
 *.swp
 # Feed
 current.xml
+testFeed.xml
