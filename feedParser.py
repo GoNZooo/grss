@@ -62,4 +62,8 @@ if __name__ == "__main__":
         for item in itemContainers:
             for dlItem in dlItems:
                 if dlItem.matchRegex(item):
+<<<<<<< HEAD
                     print(dlItem.regex, item.title)
+=======
+                    print("Match:", dlItem.regex, item.title)
+>>>>>>> 7ec5bb0ae392252fc5ef674e23564363d46ba042
