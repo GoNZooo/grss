@@ -3,7 +3,7 @@ import re
 import pathcfg
 
 class CAutoDLItem:
-    def __init__(self, name, regex, interval):
+    def __init__(self, name, regex):
         self.name = name
         self.regex = regex
 
