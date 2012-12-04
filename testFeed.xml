@@ -3,8 +3,7 @@
 	            <description>The latest torrents from TorrentLeech.org</description>
 	            <language>en</language>
 				<ttl>5</ttl>
-				<atom:link href="http://rss.torrentleech.org/545bd4247b6ebdf311b7" rel="self" type="application/rss+xml" /><item>
-	                    <title><![CDATA[Thrasher Life of Pain 2008 AC3 DVDRiP XViD-XSTREEM]]></title>
+			    <item><title><![CDATA[Thrasher Life of Pain 2008 AC3 DVDRiP XViD-XSTREEM]]></title>
 						<pubDate>Fri, 26 Oct 2012 15:02:57 +0000</pubDate>
 						<category>DVDRip/DVDScreener</category>
 						<guid>http://www.torrentleech.org/torrent/394726</guid>
