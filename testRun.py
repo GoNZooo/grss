@@ -39,3 +39,7 @@ while running:
                             item.download()
                             downloaded.append(item.link)
     time.sleep(sleepTime)
+    loop += 1
+    if loop <= 350:
+        downloaded = []
+        loop = 0
