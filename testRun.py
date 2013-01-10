@@ -20,13 +20,12 @@ if __name__ == "__main__":
     parser.add_option ("-r", "--rss", action = "store", dest = "rss_url",
                         default = pathcfg.rssURL, type = "string",
                         help = "URL to RSS feed.")
-    parser.add_option (""
 
     (options, args) = parser.parse_args()
     running = True
     downloaded = []
 
-    if pathcfg.rssURL == "http://PUT/RSS/URL/HERE" and not options.rss_url:
+    if pathcfg.rssURL == "http://PUT/RSS/URL/HERE":
         running = False
         print("Default feed URL detected.")
         print("You need to configure your RSS URL in the pathcfg.py file.")
