@@ -7,7 +7,7 @@ class CAutoDLItem:
         self.name = name
         self.regex = regex
         self.notPatterns = notPatterns
-
+    
     def matchRegex(self, feedItem):
         if re.match(self.regex, feedItem.title, 16):
             if self.notPatterns:
