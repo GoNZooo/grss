@@ -2,6 +2,7 @@ import re
 import os
 import pathcfg
 import autoDownloads
+import urllib.request
 
 class CItem:
     def __init__(self, title, date, category, guid,
@@ -15,7 +16,11 @@ class CItem:
         self.description = description
 
     def download(self):
-        os.system(pathcfg.wget + " " + self.link + " -t 5 -O " + pathcfg.downloaddir + "/" + self.link.split("/")[-1].rstrip("/"))
+        data = urllib.request.urlopen(self.link)
+        
+        tmp_out = open(pathcfg.downloaddir + "/" + self.link.split("/")[-1].rstrip("/"))
+        tmp_out.write(data.read())
+        tmp_out.close()
 
 def separateChannels(data):
     # 16 is the flag for the dot matching newlines.
@@ -46,6 +51,14 @@ def createItemContainers(itemList):
                         getGUID(item), getComments(item), getLink(item),
                         getDescription(item))
         itemContainers.append(tmpItem)
+    return itemContainers
+
+def getItems(data):
+    channels = separateChannels(data)
+    itemContainers = ""
+    if channels:
+        itemStrings = feedParser.separateItems(channels[0])
+        itemContainers = feedParser.createItemContainers(itemStrings)
     return itemContainers
 
 if __name__ == "__main__":
