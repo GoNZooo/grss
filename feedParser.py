@@ -57,8 +57,8 @@ def getItems(data):
     channels = separateChannels(data)
     itemContainers = ""
     if channels:
-        itemStrings = feedParser.separateItems(channels[0])
-        itemContainers = feedParser.createItemContainers(itemStrings)
+        itemStrings = separateItems(channels[0])
+        itemContainers = createItemContainers(itemStrings)
     return itemContainers
 
 if __name__ == "__main__":
