@@ -26,6 +26,7 @@ if __name__ == "__main__":
         print("Default feed URL detected.")
         print("You need to configure your RSS URL in the pathcfg.py file.")
 
+    loop = 0
     while running:
         data = urllib.request.urlopen(options.rss_url)
         data = data.read().decode()
