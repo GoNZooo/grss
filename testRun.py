@@ -7,8 +7,6 @@ import pathcfg
 import urllib.request
 from optparse import OptionParser
 
-
-
 if __name__ == "__main__":
     parser = OptionParser()
 
@@ -30,7 +28,7 @@ if __name__ == "__main__":
 
     while running:
         data = urllib.request.urlopen(options.rss_url)
-        data.read()
+        data = data.read()
 
         itemContainers = feedParser.getItems(data)
         autoList = autoDownloads.getAutoDownloads()
@@ -42,6 +40,7 @@ if __name__ == "__main__":
                             autoItem.regex, item.title, sep = "\t")
                         item.download()
                         downloaded.append(item.link)
+        data = ""
         time.sleep(options.sleeptime)
         loop += 1
         if loop >= 400:
