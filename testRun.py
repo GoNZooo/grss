@@ -31,7 +31,7 @@ if __name__ == "__main__":
         data = urllib.request.urlopen(options.rss_url)
         data = data.read().decode()
         if data:
-            print(time.strftime("%Y-%M-%d %H:%M:%S"), "fetched RSS")
+            print(time.strftime("%Y-%m-%d %H:%M:%S"), "fetched RSS", sep = "\t")
         itemContainers = feedParser.getItems(data)
         autoList = autoDownloads.getAutoDownloads()
         for autoItem in autoList:
