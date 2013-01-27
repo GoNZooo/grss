@@ -31,3 +31,4 @@ pip-log.txt
 # Feed
 current.xml
 testFeed.xml
+pathcfg.py
