@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     while running:
         data = urllib.request.urlopen(options.rss_url)
-        data = data.read()
+        data = data.read().decode()
 
         itemContainers = feedParser.getItems(data)
         autoList = autoDownloads.getAutoDownloads()
