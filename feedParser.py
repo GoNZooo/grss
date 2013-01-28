@@ -18,7 +18,7 @@ class CItem:
     def download(self):
         data = urllib.request.urlopen(self.link)
         
-        tmp_out = open(pathcfg.downloaddir + "/" + self.link.split("/")[-1].rstrip("/"))
+        tmp_out = open(pathcfg.downloaddir + self.link.split("/")[-1].rstrip("/"))
         tmp_out.write(data.read())
         tmp_out.close()
 
