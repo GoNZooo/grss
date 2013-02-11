@@ -31,10 +31,11 @@ if __name__ == "__main__":
     while running:
         try:
             data = urllib.request.urlopen(options.rss_url)
+            data = data.read().decode()
         except Exception as err:
             print(time.strftime("%Y-%m-%d %H:%M:%S Error:"), err, sep = "\t")
             success = False
-        data = data.read().decode()
+        
         if data:
             print(time.strftime("%Y-%m-%d %H:%M:%S"), "fetched RSS", sep = "\t")
         else:
