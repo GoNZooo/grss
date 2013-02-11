@@ -46,11 +46,10 @@ if __name__ == "__main__":
             autoList = autoDownloads.getAutoDownloads()
             for autoItem in autoList:
                 for item in itemContainers:
-                    if autoItem.matchRegex(item):
-                        if item.link not in downloaded:
-                            print("Match:", autoItem.name, item.title, sep = "\t")
-                            item.download()
-                            downloaded.append(item.link)
+                    if autoItem.matchRegex(item) and (item.link not in downloaded):
+                        print("Match:", autoItem.name, item.title, sep = "\t")
+                        item.download()
+                        downloaded.append(item.link)
         data = ""
         success = True
         time.sleep(options.sleeptime)

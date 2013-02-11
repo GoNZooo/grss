@@ -25,8 +25,10 @@ class CItem:
     def __repr__(self):
         return self.title
 
+#
+# NOTE: 16 is the flag for the dot matching newlines.
+#
 def separateChannels(data):
-    # 16 is the flag for the dot matching newlines.
     return re.findall("<channel>.*?</channel>", data, 16)
 
 def separateItems(data):
