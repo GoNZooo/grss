@@ -18,9 +18,12 @@ class CItem:
     def download(self):
         data = urllib.request.urlopen(self.link)
         
-        tmp_out = open(pathcfg.downloaddir + "/" + self.link.split("/")[-1].rstrip("/"))
+        tmp_out = open(pathcfg.downloaddir + self.link.split("/")[-1].rstrip("/"), "wb")
         tmp_out.write(data.read())
         tmp_out.close()
+
+    def __repr__(self):
+        return self.title
 
 def separateChannels(data):
     # 16 is the flag for the dot matching newlines.

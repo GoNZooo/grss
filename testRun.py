@@ -26,23 +26,33 @@ if __name__ == "__main__":
         print("Default feed URL detected.")
         print("You need to configure your RSS URL in the pathcfg.py file.")
 
+    success = True
     loop = 0
     while running:
-        data = urllib.request.urlopen(options.rss_url)
-        data = data.read().decode()
+        try:
+            data = urllib.request.urlopen(options.rss_url)
+            data = data.read().decode()
+        except Exception as err:
+            print(time.strftime("%Y-%m-%d %H:%M:%S Error:"), err, sep = "\t")
+            success = False
+        
         if data:
-            print(time.strftime("%Y-%M-%d %H:%M:%S"), "fetched RSS")
-        itemContainers = feedParser.getItems(data)
-        autoList = autoDownloads.getAutoDownloads()
-        for autoItem in autoList:
-            for item in itemContainers:
-                if autoItem.matchRegex(item):
-                    if item.link not in downloaded:
-                        print("Match:", autoItem.name,
-                            autoItem.regex, item.title, sep = "\t")
+            print(time.strftime("%Y-%m-%d %H:%M:%S"), "fetched RSS", sep = "\t")
+        else:
+            print(time.strftime("%Y-%m-%d %H:%M:%S"), "no data", sep = "\t")
+
+        if success:
+            itemContainers = feedParser.getItems(data)
+            autoList = autoDownloads.getAutoDownloads()
+            for autoItem in autoList:
+                for item in itemContainers:
+                    if (autoItem.matchRegex(item)) and (item.link not in downloaded):
+                        print("Match:", autoItem.name, item.title, sep = "\t")
                         item.download()
                         downloaded.append(item.link)
+        
         data = ""
+        success = True
         time.sleep(options.sleeptime)
         loop += 1
         if loop >= 400:
